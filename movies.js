@@ -6,6 +6,7 @@ function submitMovieReview() {
   const $container = $("<div>");
   const title = $("#title").val();
   const rating = $("#rating").val();
+  if (rating === "" || rating < 0 || rating > 10 || title.length < 2) return;
   const $button = $("<button>", {text: "Delete"}).addClass("review-delete");
 
   $container.append(`${title}: ${rating} `).append($button);

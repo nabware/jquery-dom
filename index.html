@@ -74,7 +74,13 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
-  // Add your code here!
+  $("article img").addClass("image-center");
+  $("article :last-child").remove();
+  $("#title").css("font-size", Math.round(Math.random() * 100));
+  $("ol").append("<li>I am a new line.</li>");
+  $("aside").empty().append("<p>I'm sorry for the list's existence.</p>");
+  $("input").on("change", () => {
+  })
 </script>
 </body>
 

@@ -75,12 +75,24 @@
 <script src="https://unpkg.com/jquery"></script>
 <script>
   $("article img").addClass("image-center");
-  $("article :last-child").remove();
+  $("article p:last-child").remove();
   $("#title").css("font-size", Math.round(Math.random() * 100));
+  //.append($("<li>"), {text: "Text content here"})
   $("ol").append("<li>I am a new line.</li>");
   $("aside").empty().append("<p>I'm sorry for the list's existence.</p>");
   $("input").on("change", () => {
-  })
+    //$("input").eq(0).val();
+    const redInput = $("input").get(0).value;
+    const blueInput = $("input").get(1).value;
+    const greenInput = $("input").get(2).value;
+
+    $("body").css('background-color', `rgb(${redInput},${greenInput},${blueInput})`);
+
+  });
+//event Target evt to callback, $(evt.target).remove()
+  $('img').on("click", () => {
+    $('img').remove()});
+
 </script>
 </body>
 

@@ -8,16 +8,31 @@
 <body>
 
   <form action="#">
-    <div>Title: <input type="text" placeholder="Title here"></div>
-    <div> Rating:<input type="text" placeholder="Rating here"></div>
-    <input type="submit" value="Submit">
+    <div>Title: <input id="title" type="text" placeholder="Title here"></div>
+    <div> Rating:<input id="rating" type="text" placeholder="Rating here"></div>
+    <input id="submit" type="submit" value="Submit">
 
   </form>
 
+  <div id="reviews"></div>
 
   <script src="https://unpkg.com/jquery"></script>
   <script>
+    function submitMovieReview() {
+      const $container = $("<div>");
+      const $title = $("#title").val();
+      const $rating = $("#rating").val();
+      const $button = $("<button>", {text: "Delete"});
+      $button.on("click", (evt) => {
+        $(evt.target.parentElement).remove();
+      });
 
+      $container.append(`${$title}: ${$rating} `).append($button);
+
+      $("#reviews").append($container);
+    }
+
+    $("#submit").on("click", submitMovieReview);
   </script>
 </body>
 </html>
